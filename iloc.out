@@ -1,0 +1,65 @@
+	// Assign STATIC_AREA_ADDRESS to register "r0"
+	// using the hashmap we can find the address of " a  "  1028
+	// using the hashmap we can find the address of " b  "  1032
+	// var statement left is  " ra  " ,based on the hashmap the address is 1028
+ 	 loadI 1028 	=> r1 
+	// Bogus load of constant "3" to register "r2" 
+ 	 loadI 3 	=> r2 
+	// assign statement
+	// assign statement with lvalue to register r1  
+ 	 store r2 	=> r1 
+	// var statement left is  " rb  " ,based on the hashmap the address is 1032
+ 	 loadI 1032 	=> r3 
+	// Bogus load of constant "2" to register "r4" 
+ 	 loadI 2 	=> r4 
+	// assign statement
+	// assign statement with lvalue to register r3  
+ 	 store r4 	=> r3 
+	// exp is " a  " ,based on the hashmap the address is 1028
+ 	 loadI 1028 	=> r5 
+ 	 load r5 	=> r6 
+	// exp is " b  " ,based on the hashmap the address is 1032
+ 	 loadI 1032 	=> r7 
+ 	 load r7 	=> r8 
+	// compare condition < 
+ 	 cmp_LT r6, r8 	=> r9
+	// This is the "true" branch
+ 	 cbr r9 	=> L0, L1
+L0:	 nop 
+	// exp is " a  " ,based on the hashmap the address is 1028
+ 	 loadI 1028 	=> r10 
+ 	 load r10 	=> r11 
+	// This is the "true" branch
+ 	 cbr r-741325632 	=> L3, L4
+L3:	 nop 
+	// var statement left is  " ra  " ,based on the hashmap the address is 1028
+ 	 loadI 1028 	=> r12 
+	// exp is " a  " ,based on the hashmap the address is 1028
+ 	 loadI 1028 	=> r13 
+ 	 load r13 	=> r14 
+	// Bogus load of constant "4" to register "r15" 
+ 	 loadI 4 	=> r15 
+ 	 add r14, r15 	=> r16 
+	// assign statement
+	// assign statement with lvalue to register r12  
+ 	 store r16 	=> r12 
+ 	 br L4
+L4:	 nop 
+	// This is the "false" branch
+ 	 br L1
+L1:	 nop 
+	// This is the "false" branch
+	// exp is " a  " ,based on the hashmap the address is 1028
+ 	 loadI 1028 	=> r17 
+ 	 load r17 	=> r18 
+	// output variable "ra" 
+ 	 loadI 1024 	=> r19 
+ 	 store r18 	=> r19 
+ 	 output 1024
+	// exp is " b  " ,based on the hashmap the address is 1032
+ 	 loadI 1032 	=> r20 
+ 	 load r20 	=> r21 
+	// output variable "rb" 
+ 	 loadI 1024 	=> r22 
+ 	 store r21 	=> r22 
+ 	 output 1024
